@@ -2,12 +2,11 @@ import React from 'react';
 import {
   View,
   Text,
-  TouchableWithoutFeedback,
-  StyleSheet,
-  Dimensions,
+  TouchableWithoutFeedback
 } from 'react-native';
+import styles from './TableCard.styles.js';
 
-export default function MenuCard({item, onSelect}) {
+export default function TableCard({item, onSelect}) {
   const tableColor = item.isActive ? 'green' : '#bdbdbd';
 
   return (
@@ -16,7 +15,7 @@ export default function MenuCard({item, onSelect}) {
         <View style={styles.image}>
           {item.orders.map((order, i) => (
             <Text key={i} style={styles.order}>
-              ⏺ {order.name}
+              {order.name}
             </Text>
           ))}
         </View>
@@ -28,32 +27,4 @@ export default function MenuCard({item, onSelect}) {
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    margin: 10,
-    borderWidth: 2,
-    borderRadius: 10,
-  },
-  image: {
-    height: Dimensions.get('window').height / 6,
-  },
-  name_label: {
-    fontWeight: 'bold',
-    margin: 5,
-    textAlign: 'center',
-    color: '#37474f',
-  },
-  name_container: {
-    backgroundColor: '#a5d6a7',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    borderBottomLeftRadius: 7,
-    borderBottomRightRadius: 7,
-  },
-  order: {
-    fontWeight: 'bold',
-    margin: 5,
-    fontSize: 10,
-  },
-});
+
